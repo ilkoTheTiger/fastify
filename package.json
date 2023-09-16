@@ -1,5 +1,7 @@
 {
+  "type": "module",
   "dependencies": {
+    "@types/node": "^20.6.2",
     "fastify": "^4.23.2"
   }
 }
