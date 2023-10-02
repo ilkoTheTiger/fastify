@@ -1,7 +1,16 @@
 {
-  "type": "module",
   "dependencies": {
     "@types/node": "^20.6.2",
     "fastify": "^4.23.2"
+  },
+  "scripts": {
+    "test": "tap \"test/**/*.test.js\"",
+    "start": "nodemon start -l info server.ts",
+    "dev": "nodemon server.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }

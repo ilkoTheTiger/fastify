@@ -21,7 +21,7 @@ const opts: RouteShorthandOptions = {
 };
 
 server.get("/ping", opts, async (request, reply) => {
-  return { pong: "it worked!" };
+  return { pong: "it worked again!" };
 });
 
 const start = async () => {
