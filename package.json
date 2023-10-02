@@ -5,7 +5,7 @@
   },
   "scripts": {
     "test": "tap \"test/**/*.test.js\"",
-    "start": "nodemon start -l info server.ts",
+    "start": "ts-node-esm server.ts",
     "dev": "nodemon server.ts"
   },
   "devDependencies": {
