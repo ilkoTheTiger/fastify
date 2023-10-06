@@ -1,5 +1,6 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
+import metrics from 'fastify-metrics';
 
 const server: FastifyInstance = Fastify({
     logger: true
@@ -21,8 +22,12 @@ const opts: RouteShorthandOptions = {
 };
 
 server.get("/ping", opts, async (request, reply) => {
-  return { pong: "it worked again!" };
+  return { pong: "it worked again and again!" };
 });
+
+server.register(metrics, {
+  endpoint: '/metrics',
+})
 
 const start = async () => {
   try {
