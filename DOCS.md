@@ -25,9 +25,7 @@ global:
 scrape_configs:
   - job_name: 'prototype'
     static_configs:
-      - targets: ['192.168.99.100:9101']
-      - targets: ['192.168.99.100:9102']
-      - targets: ['192.168.99.100:9103']
+      - targets: ['localhost:4000']
 ```
 
 4. Create **docker-compose.yml** in **Home** directory with the following contents:
@@ -55,7 +53,7 @@ services:
 5. Create **grafana** directory with **provisioning** sub-directory:
 ``` shell
 mkdir grafana
-mkdir grafana/provisionin
+mkdir grafana/provisioning
 ```
 
 6. Create **dashboards** and **datasources** sub-directories of **provisioning** directory:
@@ -79,7 +77,7 @@ providers:
     path: /etc/grafana/provisioning/dashboards
 ```
 
-8. Create **dashboard.yml** in the **dashboards** directory:
+8. Create **datasource.yml** in the **datasources** directory:
 ``` YAML
 # config file version
 apiVersion: 1
@@ -101,7 +99,7 @@ datasources:
   # <int> org id. will default to orgId 1 if not specified
   orgId: 1
   # <string> url
-  url: http://3.79.233.61:9090
+  url: http://54.154.150.168:9090
   # <string> database password, if used
   password:
   # <string> database user, if used
@@ -131,4 +129,15 @@ datasources:
   version: 1
   # <bool> allow users to edit datasources from the UI.
   editable: true
+```
+
+## Get the application
+1. Install git on your VM
+``` shell
+sudo dnf install git -y
+```
+
+2. Clone the repo
+``` shell
+git clone https://github.com/ilkoTheTiger/fastify.git
 ```
