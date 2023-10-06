@@ -1,6 +1,7 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import metrics from 'fastify-metrics';
+// import nstats from 'nstats';
 
 const server: FastifyInstance = Fastify({
     logger: true
