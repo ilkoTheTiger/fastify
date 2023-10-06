@@ -32,12 +32,10 @@ server.register(metrics, {
 
 const start = async () => {
   try {
-    await server.listen({ port: 3000 });
+    await server.listen({ port: 3000, host: '0.0.0.0' });
 
-    // const address = server.server.address();
-    const address = '0.0.0.0';
-    // const port = typeof address === "string" ? address : address?.port;
-    const port = 3000;
+    const address = server.server.address();
+    const port = typeof address === "string" ? address : address?.port;
   } catch (err) {
     server.log.error(err);
     process.exit(1);
