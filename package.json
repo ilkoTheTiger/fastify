@@ -2,8 +2,7 @@
   "dependencies": {
     "@types/node": "^20.6.2",
     "fastify": "^4.23.2",
-    "fastify-metrics": "^10.3.2",
-    "nstats": "^5.0.0"
+    "fastify-metrics": "^10.3.2"
   },
   "scripts": {
     "test": "tap \"test/**/*.test.js\"",

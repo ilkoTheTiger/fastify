@@ -1,7 +1,6 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import metrics from 'fastify-metrics';
-// import nstats from 'nstats';
 
 const server: FastifyInstance = Fastify({
     logger: true
@@ -13,7 +12,7 @@ const opts: RouteShorthandOptions = {
       200: {
         type: "object",
         properties: {
-          pong: {
+          ping: {
             type: "string",
           },
         },
@@ -23,7 +22,7 @@ const opts: RouteShorthandOptions = {
 };
 
 server.get("/ping", opts, async (request, reply) => {
-  return { pong: "it worked again and again!" };
+  return { ping: 'pong' };
 });
 
 server.register(metrics, {

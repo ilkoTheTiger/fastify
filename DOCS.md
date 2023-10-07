@@ -25,7 +25,7 @@ global:
 scrape_configs:
   - job_name: 'prototype'
     static_configs:
-      - targets: ['localhost:4000']
+      - targets: ['3.253.76.206:4000']
 ```
 
 4. Create **docker-compose.yml** in **Home** directory with the following contents:
@@ -99,7 +99,7 @@ datasources:
   # <int> org id. will default to orgId 1 if not specified
   orgId: 1
   # <string> url
-  url: http://54.154.150.168:9090
+  url: http://3.253.76.206:9090
   # <string> database password, if used
   password:
   # <string> database user, if used
