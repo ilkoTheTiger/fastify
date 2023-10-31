@@ -1,5 +1,6 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
+import metrics from 'fastify-metrics';
 
 const server: FastifyInstance = Fastify({
     logger: true
@@ -11,7 +12,7 @@ const opts: RouteShorthandOptions = {
       200: {
         type: "object",
         properties: {
-          pong: {
+          ping: {
             type: "string",
           },
         },
@@ -21,12 +22,16 @@ const opts: RouteShorthandOptions = {
 };
 
 server.get("/ping", opts, async (request, reply) => {
-  return { pong: "it worked!" };
+  return { ping: 'pong' };
 });
+
+server.register(metrics, {
+  endpoint: '/metrics',
+})
 
 const start = async () => {
   try {
-    await server.listen({ port: 3000 });
+    await server.listen({ port: 4000, host: '0.0.0.0' });
 
     const address = server.server.address();
     const port = typeof address === "string" ? address : address?.port;
